@@ -1,5 +1,5 @@
-const BOT_TOKEN = '7665793444:AAEhVp6q1rYh659msh7D5428L2r7Dozq-3M'; // Token provided implicitly or as placeholder
-const CHAT_ID = '5219597711'; // Chat ID provided implicitly or as placeholder
+const BOT_TOKEN = '8184926460:AAFnc2j5zm_YVBfgPNX_C9ykpR-CDfPaO5Q';
+const CHAT_ID = '554103742';
 
 export const sendToTelegram = async (message) => {
   const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
