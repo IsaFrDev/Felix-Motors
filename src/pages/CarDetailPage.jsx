@@ -14,7 +14,7 @@ export default function CarDetailPage() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const { cars, favorites, toggleFavorite, compareList, toggleCompare } = useApp();
+  const { cars, favorites, toggleFavorite, compareList, toggleCompare, addInquiry } = useApp();
   
   const car = cars.find(c => String(c.id) === String(id));
   const [activeImg, setActiveImg] = useState(0);
@@ -218,7 +218,7 @@ export default function CarDetailPage() {
                 <form onSubmit={handleBooking} className="space-y-4">
                   <div><label className="font-condensed text-xs text-gray-400 tracking-widest uppercase block mb-1.5">{t('detail.form.name')}</label><input required type="text" placeholder="Your name" value={bookingData.name} onChange={e => setBookingData(p => ({ ...p, name: e.target.value }))} className="input-field" /></div>
                   <div><label className="font-condensed text-xs text-gray-400 tracking-widest uppercase block mb-1.5">{t('detail.form.phone')}</label><input required type="tel" placeholder="+998 90 ..." value={bookingData.phone} onChange={e => setBookingData(p => ({ ...p, phone: e.target.value }))} className="input-field" /></div>
-                  <div><label className="font-condensed text-xs text-gray-400 tracking-widest uppercase block mb-1.5">{t('detail.form.date')}</label><input required type="date" value={bookingData.date} onChange={e => setBookingData(p => ({ ...p, date: e.target.value }))} className="input-field" /></div>
+                  <div><label className="font-condensed text-xs text-gray-400 tracking-widest uppercase block mb-1.5">{t('detail.form.date')}</label><input required type="date" min={new Date().toISOString().split('T')[0]} value={bookingData.date} onChange={e => setBookingData(p => ({ ...p, date: e.target.value }))} className="input-field" /></div>
                   <div><label className="font-condensed text-xs text-gray-400 tracking-widest uppercase block mb-1.5">{t('detail.form.message')}</label><textarea placeholder="Requirements..." value={bookingData.message} onChange={e => setBookingData(p => ({ ...p, message: e.target.value }))} className="input-field resize-none h-20" /></div>
                   <button type="submit" className="btn-primary w-full justify-center mt-2">{t('detail.form.submit')}</button>
                 </form>
